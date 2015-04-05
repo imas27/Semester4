@@ -1,0 +1,21 @@
+import java.io.*;
+public class latihan1
+{
+  public static void main(String args []) throws Exception
+  {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    int jumData;
+    int bilGanjil=1;
+    int i=1;
+    
+    System.out.print("Masukan jumlah bil ganjil :");
+    jumData = Integer.parseInt(br.readLine());
+    
+    while (i<=jumData)
+    {
+      System.out.println(bilGanjil);
+      bilGanjil +=2;
+      i++;
+    }
+  }
+} 

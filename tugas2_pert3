@@ -1,0 +1,31 @@
+import java.io.*;
+
+public class tugas2
+{
+  public static void main(String args []) throws Exception
+  {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    int jumData, start=1, data, total=0;
+ 
+    System.out.print("Masukan jumlah data :");
+    jumData = Integer.parseInt(br.readLine());
+ 
+    do
+    {
+      System.out.print("data ke " + start+ "=");
+      data = Integer.parseInt(br.readLine());
+      start++;//counter-increment-decrement
+      total +=data;
+    }
+    
+    while(start<=jumData);
+    
+    {
+      System.out.println("----------------------" );
+      System.out.print("total : " + total );
+      System.out.println(" " );
+      double rata = total/jumData;
+      System.out.print("Rata-rata : " + rata );
+    }
+  }
+} 

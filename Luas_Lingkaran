@@ -1,0 +1,15 @@
+public class LuasLingkaran {
+	//konstanta PHI
+	public static final float PHI = 22f/7f;
+	//method main()
+	public static void main (String []args){
+	//baca nilai radius
+	float radius = 3.0f;
+	
+	//hitung luas
+	float luas = PHI * (radius * radius);
+	
+	//tampilkan hasil
+		System.out.println ("Luas LIngkaran = "+luas);
+	}
+}

@@ -1,0 +1,24 @@
+import java.io.*;
+
+public class tugas1
+{
+	public static void main(String args []) throws Exception{
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		 int  start, end;
+		 System.out.print("awal =  ");
+		 start = Integer.parseInt(br.readLine());
+		 System.out.print("akhir = ");
+		 end = Integer.parseInt(br.readLine());
+		
+		
+		 while(start<=end )
+		 {//jika true
+		 System.out.println("data ke " + start);
+		 //start++;//counter-increment-decrement
+		 start++;
+		 
+		 }
+ 
+   }
+} 

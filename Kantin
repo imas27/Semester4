@@ -1,0 +1,80 @@
+import java.util.*;
+import java.io.*;
+
+public class kantinV2{
+  public static String  NAMA_MAKANAN[] = {"Nasi goreng", "Nasi Pecel","Es Teh","Es Jeruk","aqua gelas"};
+  public static int  HARGA[] = {11000,10000,3000, 3000,500};
+  
+  public static void main(String [] arg)throws IOException 
+  {
+    BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+ 
+    int omset[] = {0,0,0,0,0};
+    boolean selesai=false;
+    
+    do
+    {
+      System.out.println("+++++++++++++++++++++++++++++++");
+      System.out.println("Program Penjualan Kantin");
+      System.out.println("+++++++++++++++++++++++++++++++");
+      System.out.println("1.Transaksi Penjualan");
+      System.out.println("2.Omset Penjualan");
+      System.out.println("3.Exit");
+      System.out.println("Silahkan pilih menu 1 - 3 : ");
+      int pilihan=Integer.parseInt(br.readLine());
+      
+      switch(pilihan)
+      {
+        case 1: System.out.println("+++++++++++++++++++++++++++++");
+        System.out.println("Transaksi Penjualan");
+        System.out.print("Masukan nama makanan/minuman : ");
+        String makanan=br.readLine();
+        //cari makanan
+        
+        int idx=-1;//data tidak ketemu - out of range -
+        
+        for(int i=0;i<NAMA_MAKANAN.length;i++){
+          if(NAMA_MAKANAN[i].equalsIgnoreCase(makanan)){
+            idx=i;
+            break;
+          }
+        }
+        
+        if(idx!=-1){
+          System.out.println("Harga " + makanan + ": " + HARGA[idx]);
+          System.out.print("Jumlah " + makanan + " yang dibeli = ");
+          int jml=Integer.parseInt(br.readLine());
+          int total=jml*HARGA[idx];
+          omset[idx] +=jml;
+          System.out.println("Total = " + total);
+        }else
+        {
+          System.out.println("==================================");
+          System.out.println("Makanan/Minuman tidak tersedia !!");
+        }
+        break;
+        
+        case 2: System.out.println("-----------------------------");
+        System.out.println("OMSET PENJUALAN");
+        System.out.println("Makanan\tJmlPenjualan\tTotal");
+        System.out.println("-----------------------------");
+        int totalOmset=0;
+        
+        for(int i=0;i<NAMA_MAKANAN.length;i++)
+        {
+          System.out.println(NAMA_MAKANAN[i]+"  \t"+omset[i]+"\t"+omset[i]*HARGA[i]);
+          totalOmset +=(omset[i]*HARGA[i]);
+        }
+        System.out.println("----------------------------");
+        System.out.println("TOTAL OMSET = \t\t" + totalOmset);
+        break;
+        
+        case 3:
+          selesai=true;break;
+        default : System.out.println("==================================");
+        System.out.println("Menu pilihan hanya 1 sampai 3");break;
+      }
+    }while(!selesai);
+    System.out.println("Program Exit....");
+  }
+}

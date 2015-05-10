@@ -1,0 +1,50 @@
+import java.io.*;
+public class daftarIsimas{
+
+  public static void cetakGaris(int a)
+  {
+    for (int i=0;i<=50-a;i++)
+	{
+      System.out.print(".");
+    }
+  }
+  
+  
+  public static void isi(String judul,int hal)
+  {
+  System.out.print(judul);
+  
+  cetakGaris(judul.length());
+ 
+  System.out.print(hal);
+  
+  System.out.println();
+  }  
+    
+  public static void main(String[]argv) throws Exception{
+    
+   BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+    
+    int n=0;
+    
+    System.out.print("Masukan Jumlah Bab : ");
+    n=Integer.parseInt(br.readLine());
+    String[]judul=new String[n];
+    int[]hal=new int[n];
+    
+    for(int i=0;i<n;i++){
+    System.out.println("Data Ke-"+(i+1));  
+    System.out.print("Masukan Judul : ");
+    judul[i]=br.readLine();
+    System.out.print("Masukan Jumlah Halaman : ");
+    hal[i]=Integer.parseInt(br.readLine());
+    }
+ 
+    System.out.println("\t\tDAFTAR ISI");
+    for(int i=0;i<n;i++){
+    System.out.print("BAB "+(i+1)+" : ");
+      isi(judul[i],hal[i]);
+    }
+    
+  }
+}

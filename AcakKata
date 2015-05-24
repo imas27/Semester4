@@ -1,0 +1,120 @@
+import java.util.*;
+
+public class AcakKataImas {
+  public static final String BENAR  = "BENAR!";
+  public static final String GARIS  = "======================== ACAK KATA ===========================";
+  public static final String SALAH  = "SALAH! Silahkan coba lagi";
+  public static final String CHOOSE = "Ingin bermain atau menambahkan kata? (MAIN/TAMBAH)";
+  public static final String ASK    = "Ingin kembali bermain? (YA/TIDAK)";
+  public static final String TAMBAH = "TAMBAH";
+  public static final String INPUT  = "Masukkan kata yang ingin Anda tambahkan dalam permainan";
+  public static final String ADD_SUCCESS = "Kata berhasil dimasukkan.";
+  public static final String PLAY_FALSE  = "Sayang sekali :(";
+
+  public static ArrayList<String> kumpulan_kata;
+  
+  public static boolean play;
+  public static boolean answer;
+  
+  public static void main (String[] args) {
+    initialize();
+    String temp = ""; 
+    Scanner scan = new Scanner(System.in);
+    
+    while (true) 
+    {
+      System.out.println(CHOOSE);
+      String choose = scan.next();
+      
+      if (choose.equalsIgnoreCase(TAMBAH)) 
+      {
+        System.out.println(INPUT);
+        temp = scan.next();
+        tambahKata(temp);
+      } 
+      else {
+        play = true;
+        
+        while (play) {
+          answer = false;
+          String kata = randomize();
+          System.out.println();
+          System.out.println("Tebak kata ini : " + acak(kata));
+          
+          while (!answer) {
+            System.out.print("Jawab : ");
+            String jawaban = scan.next();
+            
+            if (jawaban.equalsIgnoreCase(kata)) {
+              answer = true;
+              System.out.println(BENAR);
+              
+            } else {
+              System.out.println(SALAH);     
+            }
+          }
+          
+          System.out.println(ASK);
+          temp = scan.next();
+          
+          if (temp.equalsIgnoreCase("YA")) {
+            // do nothing
+          } else {
+            System.out.println(PLAY_FALSE);
+            play = false;
+          }
+        }
+      }
+    }
+    
+  }
+  
+  public static void initialize() {
+    System.out.println(GARIS);
+    play = true;
+    answer = false;
+    
+    kumpulan_kata = new ArrayList<String>();
+    kumpulan_kata.add("gelas");
+    kumpulan_kata.add("obat");
+    kumpulan_kata.add("pensil");
+    kumpulan_kata.add("stikom");
+    kumpulan_kata.add("coding");
+    kumpulan_kata.add("internet");
+  }
+  
+  public static String randomize() {
+    Random rn = new Random();
+    int i = rn.nextInt(kumpulan_kata.size());
+    return kumpulan_kata.get(i);
+  }
+  
+  public static String acak (String kata) {
+    Random rn = new Random();
+    boolean[] flag = new boolean[kata.length()];
+    StringBuffer randStr = new StringBuffer();
+    
+    String kata_acak = kata;
+    
+    while(kata_acak.equalsIgnoreCase(kata)) {
+      for (int i = 0; i < kata.length(); i++) {
+        int number = rn.nextInt(kata.length());
+        
+        while (flag[number]) {
+          number = rn.nextInt(kata.length());
+        }
+        flag[number] = true;
+        
+        char ch = kata.charAt(number);
+        randStr.append(ch);
+      }
+      kata_acak = randStr.toString();
+    }
+    return kata_acak;
+  }
+  
+  public static void tambahKata(String str) {
+    kumpulan_kata.add(str);
+    System.out.println(ADD_SUCCESS);
+  }
+}

@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class DataMhsR2Arr1{
+public class cariMhs{
   public static String []nimList = {"12410100213",
     "12410100233",
     "13410100002",
@@ -74,15 +74,14 @@ public class DataMhsR2Arr1{
    * */
   public static int cariNimIdx(String nim){
     //tuliskan algoritma anda di sini
-	nim = "";
-    int idx=0;
-		for (int i=0;i<nimList.length;i++){
-			if(nim==nimList[i]){
-				idx=i;
-			}
+	int i=0;
+	while(i<nimList.length)
+		{
+			if (nimList[i].equals(nim))
+				return i;
+				i++;
 		}
-		
-    return -1;
+	return -1;
   }
   
   /**
@@ -93,15 +92,14 @@ public class DataMhsR2Arr1{
    * */
   public static int cariNamaIdx(String nama){
     //tuliskan algoritma anda di sini
-	nama = "";
-    int idx=0;
-	for (int i=0;i<namaList.length;i++){
-		if(nama==namaList[i]){
-			idx=i;
+	int i=0;
+	while(i<namaList.length)
+		{
+			if (namaList[i].equals(nama))
+				return i;
+				i++;
 		}
-	}
-	
-    return -1;
+	return -1;
   }
   
   /**
@@ -112,25 +110,21 @@ public class DataMhsR2Arr1{
    * nim tidak ditemukan 
    * */
   public static String cariDataMhs(String nim){
-	cariNimIdx(nim);
-	
-	if (){
-		System.out.println("Nama Mahasiswa = "+ );
-	}else{
-		System.out.println ("Nim Tidak ditemukan ");
-	}
-	return nim;
+	int idx=cariNimIdx(nim);
+	if(idx==-1)
+	return "Nim tidak ditemukan !!!";
+	else
+	return "Nama Mahasiswa : " + namaList[idx];
   }
   
   public static void main(String []strd) throws IOException{
-    //lakukan pengujian method anda disini
-    cariDataMhs("13410100227");
-    //tuliskan algoritma anda di sini
-	BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
-	System.out.println ("PENCARIAN DATA MAHASISWA");
-	
-
-	
+    BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
 		
+		System.out.print ("Masukan Nim :");
+		String nim = br.readLine();
+		
+		System.out.println(cariDataMhs(nim));
+		//System.out.println("Nim :"+cariNamaIdx(nama));
+		System.out.println("Indeks ke : " + cariNimIdx(nim));
   }
 } 

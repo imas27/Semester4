@@ -1,0 +1,136 @@
+import java.util.*;
+import java.io.*;
+
+public class DataMhsR2Arr1{
+  public static String []nimList = {"12410100213",
+    "12410100233",
+    "13410100002",
+    "13410100019",
+    "13410100020",
+    "13410100021",
+    "13410100028",
+    "13410100046",
+    "13410100054",
+    "13410100064",
+    "13410100074",
+    "13410100111",
+    "13410100121",
+    "13410100145",
+    "13410100147",
+    "13410100148",
+    "13410100154",
+    "13410100156",
+    "13410100158",
+    "13410100160",
+    "13410100161",
+    "13410100163",
+    "13410100170",
+    "13410100176",
+    "13410100186", 
+    "13410100203",
+    "13410100212",
+    "13410100223",
+    "13410100227",
+    "13410100235",
+    "13410100239"};
+  public static String []namaList={
+    "Rudi Tri Setiawan",
+    "Nugraha Caturriyanto Utama",
+    "Bagus Rahmadan",
+    "Irfan Listyo Pamungkas",
+    "Umar",
+    "Bagas Ferry Pradityo",
+    "Iman Nurbela",
+    "Flavianus Yoga Perdana",
+    "Risky Fitri Islamiati",
+    "Achmad Misbahuddin Alharits",
+    "Muchammad Ainul Chakim",
+    "Bagus Handoko",
+    "Adhi Setiawan",
+    "Belly Purna Bahesa",
+    "Satria Wina Adhiguna",
+    "Ahmad Aditiya",
+    "Arizal Azhfahani",
+    "Teghar Firmansyah",
+    "Muchamad Nasrullah",
+    "Moh. Miftahussalam",
+    "Fammy Ibnu Pribadi",
+    "Ryan Gusti Erlangga",
+    "Wildan Bimantoro",
+    "Dhimas Sulistyo Basuki", 
+    "M. Ali Fikri",
+    "Aditya Putra Setiajie",
+    "Farid Denianto",
+    "Zainudin Adi Kusuma",
+    "Imas Setiawan Raharja",
+    "Riyo Tata Hubang",
+    "Ahmad Faris"};
+  
+  /**
+   * method untuk mencari index array dari
+   * array of String yang berisi nim mahasiswa
+   * input param : nim
+   * output return val : index
+   * */
+  public static int cariNimIdx(String nim){
+    //tuliskan algoritma anda di sini
+	nim = "";
+    int idx=0;
+		for (int i=0;i<nimList.length;i++){
+			if(nim==nimList[i]){
+				idx=i;
+			}
+		}
+		
+    return -1;
+  }
+  
+  /**
+   * method untuk mencari index array dari
+   * array of String yang berisi nama mahasiswa
+   * input param: nama
+   * output return val: index nama
+   * */
+  public static int cariNamaIdx(String nama){
+    //tuliskan algoritma anda di sini
+	nama = "";
+    int idx=0;
+	for (int i=0;i<namaList.length;i++){
+		if(nama==namaList[i]){
+			idx=i;
+		}
+	}
+	
+    return -1;
+  }
+  
+  /**
+   * method untuk mencari data mahasiswa 
+   * berdasarkan nim, jika index nim ditemukan
+   * maka akan dikembalikan nama dari mahasiswa tsb
+   * jika tidak ketemu maka akan ditampilkan keterangan
+   * nim tidak ditemukan 
+   * */
+  public static String cariDataMhs(String nim){
+	cariNimIdx(nim);
+	
+	if (){
+		System.out.println("Nama Mahasiswa = "+ );
+	}else{
+		System.out.println ("Nim Tidak ditemukan ");
+	}
+	return nim;
+  }
+  
+  public static void main(String []strd) throws IOException{
+    //lakukan pengujian method anda disini
+    cariDataMhs("13410100227");
+    //tuliskan algoritma anda di sini
+	BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+	System.out.println ("PENCARIAN DATA MAHASISWA");
+	
+
+	
+		
+  }
+} 

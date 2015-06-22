@@ -1,0 +1,39 @@
+//imasSetiawanRaharja (13410100227)
+public class dBuah
+{
+	private String idBuah;
+	private String nBuah;
+	private double hBuah;
+	
+	public dBuah(String idBuah, String nBuah, double hBuah)
+	{
+		this.idBuah = idBuah;
+		this.nBuah = nBuah;
+		this.hBuah = hBuah;
+	}
+	
+	public String getId()
+	{
+		return idBuah;
+	}
+	
+	public String getnamaBuah()
+	{
+		return nBuah;
+	}
+	
+	public double gethargaBuah()
+	{
+		return hBuah;
+	}
+	
+	public void setHarga(double hBuah)
+	{
+		this.hBuah = hBuah;
+	}
+	
+	public void setNama(String nBuah)
+	{
+		this.nBuah = nBuah;
+	}
+}
